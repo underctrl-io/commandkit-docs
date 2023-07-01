@@ -1,0 +1,57 @@
+---
+title: Events Setup
+---
+
+This is a simple overview of how to set up a simple function that is called when the "ready" event is triggered. All this code does is log to the console when the bot is ready.
+
+```js
+// events/ready/console-log.js
+module.exports = (c, client) => {
+  console.log(`${c.user.username} is ready!`);
+};
+```
+
+### Parameters explained
+
+The parameters might look a bit confusing at first, but they're actually quite simple. The first parameter `c` is the client object that was returned as a parameter when the "ready" event was triggered. The second parameter `client` is the Discord.js client that was instantiated in your main entry point file.
+
+To better understand how the parameters work, here's another example but with the "messageCreate" event listener.
+
+```js
+// events/messageCreate/say-hi.js
+module.exports = (message, client) => {
+  if (message.content === 'hey') {
+    message.reply('Hi!');
+  }
+};
+```
+
+In this example you can see that the first parameter is the `message` object that was returned as a parameter when the "messageCreate" event was triggered. The `client` parameter is the same as the previous example.
+
+But what if an event returns multiple parameters? Let's take for example the "messageUpdate" event. This event returns two parameters, `oldMessage` and `newMessage`. The parameters will follow the same behaviour as if you were using the `client.on()` method.
+
+```js
+// events/messageUpdate/log-message-update.js
+module.exports = (oldMessage, newMessage, client) => {
+  console.log(`Message edited from ${oldMessage.content} to ${newMessage.content}`);
+};
+```
+
+As you can see, even with multiple parameters, the last parameter will always be the `client` object.
+
+### Stopping the event loop
+
+The code above is just a simple example of how to set up an event function. But what if you want to stop the next event function in line from running? This is where the `return` statement comes in handy.
+
+```js
+// events/messageCreate/say-hi.js
+module.exports = (message, client) => {
+  if (message.content === 'hey') {
+    message.reply('Hi!');
+
+    return true; // THIS STOPS THE EVENT LOOP
+  }
+};
+```
+
+You can return any truthy value from this function to stop the next event function from running.
