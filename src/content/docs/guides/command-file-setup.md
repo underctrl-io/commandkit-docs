@@ -23,6 +23,7 @@ module.exports = {
     guildOnly: true,
     userPermissions: ['Administrator', 'AddReactions'],
     botPermissions: ['Administrator', 'AddReactions'],
+    deleted: false,
   },
 };
 ```
@@ -48,3 +49,4 @@ There is an additional optional property that can also be exported within the ob
   - `guildOnly` - A boolean that determines whether the command should only be handled in guilds.
   - `userPermissions` - An array of permission strings/bits that determines whether the user has the required permissions to execute the command. This is checked against the user's permissions in the guild where the command was executed (if any).
   - `botPermissions` - An array of permission strings/bits that determines whether the bot has the required permissions to execute the command. This is checked against the bot's permissions in the guild where the command was executed (if any).
+  - `deleted` - A boolean that determines whether the command should be deleted on the next app restart.
