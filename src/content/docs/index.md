@@ -23,7 +23,7 @@ CommandKit is a library for Discord.js applications that allows for quick and ea
 - Very beginner friendly 🚀
 - Support for slash and context menu commands ✅
 - Supports command validation functions 🛠
-- Automatic command registrations and deletion 🤖
+- Automatic command registration, edits, and deletion 🤖
 - Supports multiple development servers 🤝
 - Supports multiple users as bot developers 👥
 - Object oriented 💻
