@@ -21,6 +21,7 @@ export default defineConfig({
             { label: 'Commands Setup', link: '/guides/command-file-setup' },
             { label: 'Events Setup', link: '/guides/event-file-setup' },
             { label: 'Validations Setup', link: '/guides/validation-file-setup' },
+            { label: 'Migrate from DJS-Commander', link: '/guides/migrating-from-djs-commander' },
           ],
         },
         {
