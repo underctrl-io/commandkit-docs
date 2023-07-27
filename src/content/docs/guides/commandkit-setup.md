@@ -7,11 +7,11 @@ This is a simple overview of how to set up CommandKit with all the available opt
 ```js
 // index.js
 const { CommandKit } = require('commandkit');
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, GatewayIntentBits } = require('discord.js');
 const path = require('path');
 
 const client = new Client({
-  intents: [IntentsBitField.Flags.Guilds],
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
 new CommandKit({
@@ -26,6 +26,12 @@ new CommandKit({
 client.login('your_bot_token');
 ```
 
+### Client intents
+
+**⚠️ Some properties are only accessable using the correct intents**
+
+Intents limit the data you get, in the example above, the most important intents are already set for getting Guilds, Guild Messages and Message Content, if you need access to more data such as Guild Members, you can add it into the `intents` array at the `Client`
+ constructor, a [list of intents can be found here](https://discord-api-types.dev/api/discord-api-types-v10/enum/GatewayIntentBits).
 ### Required properties
 
 - `client` - Your Discord.js client object
