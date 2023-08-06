@@ -11,14 +11,14 @@ Validation functions are called on every command trigger, so it's important to k
 const cooldowns = require('../cooldowns-cache');
 
 module.exports = ({ interaction, commandObj }) => {
-  if (cooldowns.has(`${interaction.user.id}-${commandObj.data.name}`)) {
-    interaction.reply({
-      content: "You're on cooldown, please wait some time before running this command again.",
-      ephemeral: true,
-    });
+    if (cooldowns.has(`${interaction.user.id}-${commandObj.data.name}`)) {
+        interaction.reply({
+            content: "You're on cooldown, please wait some time before running this command again.",
+            ephemeral: true,
+        });
 
-    return true; // THIS IS IMPORTANT
-  }
+        return true; // THIS IS IMPORTANT
+    }
 };
 ```
 
@@ -32,4 +32,6 @@ The `commandObj` object is what's being exported from your command file (excludi
 
 You may notice that the code above is returning `true`. This is important as it tells the command handler to not run any other validations and to not run the command. If you do not return `true` (or any truthy value), the command will run as normal.
 
-**NOTE: Interactions (commands) must be handled within 5 seconds, so make sure your validations are not using up much of that time. If you're using a database or an external API, it's recommended to implement caching to keep things quick.**
+:::caution
+Interactions (commands) must be handled within 5 seconds, so make sure your validations are not using up much of that time. If you're using a database or an external API, it's recommended to implement caching to keep things quick.
+:::

@@ -7,7 +7,7 @@ This is a simple overview of how to set up a simple function that is called when
 ```js
 // events/ready/console-log.js
 module.exports = (c, client) => {
-  console.log(`${c.user.username} is ready!`);
+    console.log(`${c.user.username} is ready!`);
 };
 ```
 
@@ -20,9 +20,9 @@ To better understand how the parameters work, here's another example but with th
 ```js
 // events/messageCreate/say-hi.js
 module.exports = (message, client) => {
-  if (message.content === 'hey') {
-    message.reply('Hi!');
-  }
+    if (message.content === 'hey') {
+        message.reply('Hi!');
+    }
 };
 ```
 
@@ -33,7 +33,7 @@ But what if an event returns multiple parameters? Let's take for example the "me
 ```js
 // events/messageUpdate/log-message-update.js
 module.exports = (oldMessage, newMessage, client) => {
-  console.log(`Message edited from ${oldMessage.content} to ${newMessage.content}`);
+    console.log(`Message edited from ${oldMessage.content} to ${newMessage.content}`);
 };
 ```
 
@@ -46,11 +46,11 @@ The code above is just a simple example of how to set up an event function. But 
 ```js
 // events/messageCreate/say-hi.js
 module.exports = (message, client) => {
-  if (message.content === 'hey') {
-    message.reply('Hi!');
+    if (message.content === 'hey') {
+        message.reply('Hi!');
 
-    return true; // THIS STOPS THE EVENT LOOP
-  }
+        return true; // THIS STOPS THE EVENT LOOP
+    }
 };
 ```
 

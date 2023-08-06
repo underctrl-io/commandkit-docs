@@ -3,7 +3,10 @@ title: Migrating from DJS-Commander to CommandKit
 ---
 
 If you're trying to use CommandKit as a drop-in replacement for DJS-Commander, you'll need to make a few changes to your code.
-Please note, I'm not introducing all the new features this library offers over DJS-Commander. I'm just going over the changes you'll need to make to your code to get it working with this library.
+
+:::caution
+This guide is NOT introducing the features this library offers over DJS-Commander. It's just going over the changes you'll need to make to your code to get it working with this library.
+:::
 
 ## Setting up the command handler
 
@@ -13,9 +16,9 @@ In DJS-Commander, you'd import and instantiate the `CommandHandler` class. The o
 const { CommandKit } = require('commandkit');
 
 new CommandKit({
-  client,
-  commandsPath,
-  eventsPath,
+    client,
+    commandsPath,
+    eventsPath,
 });
 ```
 
@@ -25,10 +28,10 @@ In DJS-Commander only a single development server was supported, and it was setu
 
 ```js
 new CommandHandler({
-  client,
-  commandsPath,
-  eventsPath,
-  testServer: '123456789012345678', // ❌
+    client,
+    commandsPath,
+    eventsPath,
+    testServer: '123456789012345678', // ❌
 });
 ```
 
@@ -36,10 +39,10 @@ In CommandKit, you can setup multiple development servers under the property nam
 
 ```js
 new CommandKit({
-  client,
-  commandsPath,
-  eventsPath,
-  devServerIds: ['123456789012345678', '876543210987654321'], // ✅
+    client,
+    commandsPath,
+    eventsPath,
+    devServerIds: ['123456789012345678', '876543210987654321'], // ✅
 });
 ```
 
@@ -47,18 +50,18 @@ However, this does not automatically register all the commands in those specific
 
 ```js
 module.exports = {
-  data: {
-    name: 'ping',
-    description: 'Pong!',
-  },
+    data: {
+        name: 'ping',
+        description: 'Pong!',
+    },
 
-  run: ({ interaction }) => {
-    interaction.reply('Pong!');
-  },
+    run: ({ interaction }) => {
+        interaction.reply('Pong!');
+    },
 
-  options: {
-    devOnly: true, // ✅
-  },
+    options: {
+        devOnly: true, // ✅
+    },
 };
 ```
 
@@ -66,11 +69,11 @@ This command will now be registered in your development server, however you won'
 
 ```js
 new CommandKit({
-  client,
-  commandsPath,
-  eventsPath,
-  devServerIds: ['123456789012345678', '876543210987654321'],
-  devUserIds: ['123456789012345678', '876543210987654321'], // ✅
+    client,
+    commandsPath,
+    eventsPath,
+    devServerIds: ['123456789012345678', '876543210987654321'],
+    devUserIds: ['123456789012345678', '876543210987654321'], // ✅
 });
 ```
 
@@ -80,20 +83,20 @@ Deleting commands with CommandKit is a bit different from DJS-Commander's. In DJ
 
 ```js
 module.exports = {
-  data: {
-    name: 'ping',
-    description: 'Pong!',
-  },
+    data: {
+        name: 'ping',
+        description: 'Pong!',
+    },
 
-  run: ({ interaction }) => {
-    interaction.reply('Pong!');
-  },
+    run: ({ interaction }) => {
+        interaction.reply('Pong!');
+    },
 
-  deleted: true, // ❌
+    deleted: true, // ❌
 
-  options: {
-    deleted: true, // ✅
-  },
+    options: {
+        deleted: true, // ✅
+    },
 };
 ```
 
