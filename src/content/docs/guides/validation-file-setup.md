@@ -33,5 +33,5 @@ The `commandObj` object is what's being exported from your command file (excludi
 You may notice that the code above is returning `true`. This is important as it tells the command handler to not run any other validations and to not run the command. If you do not return `true` (or any truthy value), the command will run as normal.
 
 :::caution
-Interactions (commands) must be handled within 5 seconds, so make sure your validations are not using up much of that time. If you're using a database or an external API, it's recommended to implement caching to keep things quick.
+Interactions (commands in this case) must be handled within 5 seconds, so make sure your validations are not using up much of that time. If you're using a database or an external API, it's recommended to implement caching to keep things quick.
 :::

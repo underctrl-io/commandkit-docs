@@ -5,7 +5,7 @@ title: Migrating from DJS-Commander to CommandKit
 If you're trying to use CommandKit as a drop-in replacement for DJS-Commander, you'll need to make a few changes to your code.
 
 :::caution
-This guide is NOT introducing the features this library offers over DJS-Commander. It's just going over the changes you'll need to make to your code to get it working with this library.
+This guide is **not** introducing the features this library offers over DJS-Commander. It's just going over the changes you'll need to make to your code to get it working with this library.
 :::
 
 ## Setting up the command handler

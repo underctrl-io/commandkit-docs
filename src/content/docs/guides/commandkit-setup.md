@@ -32,7 +32,7 @@ client.login('your_bot_token');
 
 ### Client intents
 
-:::caution
+:::note
 Some properties are only accessible using the correct intents
 :::
 
@@ -51,6 +51,6 @@ constructor, a [list of intents can be found here](https://discord-api-types.dev
 -   `devGuildIds` - Array of development server IDs. Used to register and run developer only commands in specific servers.
 -   `devUserIds` - Array of developer user IDs. Used to ensure developer only commands can only be ran by these users.
 
-:::caution
+:::note
 It's highly recommended to use the "path" library to define your paths to avoid any file import issues.
 :::
