@@ -3,6 +3,8 @@ title: CommandKit
 template: splash
 hero:
     tagline: Easily handle commands, events, and validations in your Discord.js projects!
+    image:
+        file: ../../assets/logo.png
     actions:
         - text: Get Started
           link: /guides/installation/
