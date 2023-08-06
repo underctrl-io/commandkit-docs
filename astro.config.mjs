@@ -7,6 +7,11 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'CommandKit',
+            editLink: {
+                baseUrl: 'https://github.com/underctrl-io/commandkit-docs/edit/master/',
+            },
+            customCss: ['./src/assets/landing.css'],
+            lastUpdated: true,
             social: {
                 github: 'https://github.com/underctrl-io/commandkit',
                 discord: 'https://discord.underctrl.io',
@@ -27,10 +32,6 @@ export default defineConfig({
                             link: '/guides/migrating-from-djs-commander',
                         },
                     ],
-                },
-                {
-                    label: 'Documentation',
-                    items: [{ label: 'Introduction', link: '/docs/introduction' }],
                 },
             ],
         }),
