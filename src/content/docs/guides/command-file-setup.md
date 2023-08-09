@@ -45,7 +45,7 @@ Every command file must export an object with the following properties:
 There is an additional optional property that can also be exported within the object above:
 
 -   `options` - An object which tells the command how to behave during registration and handling. This object has the following optional properties:
-    -   `devOnly` - A boolean that determines whether the command should only be registered in development guilds and by the bot developers. These properties are setup as `devGuildIds` and `devUserIds` when [instantiating `CommandKit`](/guides/commandkit-setup/).
+    -   `devOnly` - A boolean that determines whether the command should only be registered in development guilds and be executed by the bot developers. These properties are setup as `devGuildIds`, `devUserIds`, and `devRoleIds` when [instantiating `CommandKit`](/guides/commandkit-setup/).
     -   `guildOnly` - A boolean that determines whether the command should only be handled in guilds.
     -   `userPermissions` - An array of permission strings/bits that determines whether the user has the required permissions to execute the command. This is checked against the user's permissions in the guild where the command was executed (if any).
     -   `botPermissions` - An array of permission strings/bits that determines whether the bot has the required permissions to execute the command. This is checked against the bot's permissions in the guild where the command was executed (if any).

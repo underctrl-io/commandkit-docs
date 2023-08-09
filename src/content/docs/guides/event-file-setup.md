@@ -28,6 +28,8 @@ module.exports = (message, client) => {
 
 In this example you can see that the first parameter is the `message` object that was returned as a parameter when the "messageCreate" event was triggered. The `client` parameter is the same as the previous example.
 
+## Multiple parameters explained
+
 But what if an event returns multiple parameters? Let's take for example the "messageUpdate" event. This event returns two parameters, `oldMessage` and `newMessage`. The parameters will follow the same behaviour as if you were using the `client.on()` method.
 
 ```js
