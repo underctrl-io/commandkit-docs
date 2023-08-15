@@ -7,7 +7,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: '',
-            favicon: './src/assets/favicon.png',
+            favicon: '/favicon.png',
             logo: {
                 src: './src/assets/nav_logo.png',
             },
