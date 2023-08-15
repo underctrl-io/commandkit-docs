@@ -11,7 +11,7 @@ export default defineConfig({
             editLink: {
                 baseUrl: 'https://github.com/underctrl-io/commandkit-docs/edit/master/',
             },
-            customCss: ['./src/assets/landing.css'],
+            customCss: ['./src/styles/landing.css', './src/styles/custom.css'],
             lastUpdated: true,
             social: {
                 github: 'https://github.com/underctrl-io/commandkit',
