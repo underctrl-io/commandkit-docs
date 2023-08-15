@@ -6,6 +6,7 @@ export default defineConfig({
     site: 'https://commandkit.underctrl.io',
     integrations: [
         starlight({
+            title: '',
             favicon: '/src/assets/favicon.png',
             logo: {
                 src: './src/assets/nav_logo.png',
