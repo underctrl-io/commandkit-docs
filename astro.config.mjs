@@ -6,8 +6,10 @@ export default defineConfig({
     site: 'https://commandkit.underctrl.io',
     integrations: [
         starlight({
-            favicon: '/favicon.png',
-            title: 'CommandKit',
+            favicon: '/src/assets/favicon.png',
+            logo: {
+                src: './src/assets/nav_logo.png',
+            },
             editLink: {
                 baseUrl: 'https://github.com/underctrl-io/commandkit-docs/edit/master/',
             },
