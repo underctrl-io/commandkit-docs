@@ -2,25 +2,49 @@
 title: Validations Setup
 ---
 
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
 Validations are functions that are called before the `run()` function from a command object is called. They can be used for many things, including validating your command object, or even implementing features such as cooldowns where the user will not be able to run the command if a validation functions says so.
 
 Validation functions are called on every command trigger, so it's important to keep them as lightweight as possible.
 
-```js
-// validations/cooldowns.js
-const cooldowns = require('../cooldowns-cache');
+<Tabs>
+    <TabItem label="CommonJS">
+        ```js
+        // validations/cooldowns.js
+        const cooldowns = require('../cooldowns-cache');
 
-module.exports = ({ interaction, commandObj }) => {
-    if (cooldowns.has(`${interaction.user.id}-${commandObj.data.name}`)) {
-        interaction.reply({
-            content: "You're on cooldown, please wait some time before running this command again.",
-            ephemeral: true,
-        });
+        module.exports = ({ interaction, commandObj }) => {
+            if (cooldowns.has(`${interaction.user.id}-${commandObj.data.name}`)) {
+                interaction.reply({
+                    content: "You're on cooldown, please wait some time before running this command again.",
+                    ephemeral: true,
+                });
 
-        return true; // THIS IS IMPORTANT
-    }
-};
-```
+                return true; // THIS IS IMPORTANT
+            }
+        };
+        ```
+    </TabItem>
+    
+    <TabItem label="ESM">
+        ```js
+        // validations/cooldowns.js
+        import cooldowns from '../cooldowns-cache';
+
+        export default function ({ interaction, commandObj }) {
+            if (cooldowns.has(`${interaction.user.id}-${commandObj.data.name}`)) {
+                interaction.reply({
+                    content: "You're on cooldown, please wait some time before running this command again.",
+                    ephemeral: true,
+                });
+
+                return true; // THIS IS IMPORTANT
+            }
+        };
+        ```
+    </TabItem>
+</Tabs>
 
 ### Parameters explained
 
