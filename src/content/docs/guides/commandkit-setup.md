@@ -48,7 +48,6 @@ constructor, a [list of intents can be found here](https://discord-api-types.dev
 -   `validationsPath` - Path to the validations folder. This will only work if `commandsPath` was provided.
 -   `devGuildIds` - Array of development server IDs. Used to register and run developer only commands in specific servers.
 -   `devUserIds` - Array of developer user IDs. Used to ensure developer only commands can only be ran by these users.
--   `devRoleIds` -
 -   `devRoleIds` - Array of developer role IDs. Used to ensure developer only commands can only be ran by users with these roles.
 -   `skipBuiltInValidations` - A property that disables CommandKit's built-in validations.
 
