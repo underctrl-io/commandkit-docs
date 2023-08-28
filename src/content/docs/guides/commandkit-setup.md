@@ -11,11 +11,7 @@ const { CommandKit } = require('commandkit');
 const path = require('path');
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-    ],
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
 });
 
 new CommandKit({
@@ -25,6 +21,7 @@ new CommandKit({
     validationsPath: path.join(__dirname, 'validations'),
     devGuildIds: ['DEV_SERVER_ID_1', 'DEV_SERVER_ID_2'],
     devUserIds: ['DEV_USER_ID_1', 'DEV_USER_ID_2'],
+    devRoleIds: ['DEV_ROLE_ID_1', 'DEV_ROLE_ID_2'],
     skipBuiltInValidations: true,
 });
 
@@ -51,6 +48,8 @@ constructor, a [list of intents can be found here](https://discord-api-types.dev
 -   `validationsPath` - Path to the validations folder. This will only work if `commandsPath` was provided.
 -   `devGuildIds` - Array of development server IDs. Used to register and run developer only commands in specific servers.
 -   `devUserIds` - Array of developer user IDs. Used to ensure developer only commands can only be ran by these users.
+-   `devRoleIds` -
+-   `devRoleIds` - Array of developer role IDs. Used to ensure developer only commands can only be ran by users with these roles.
 -   `skipBuiltInValidations` - A property that disables CommandKit's built-in validations.
 
 :::note
