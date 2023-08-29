@@ -9,7 +9,8 @@ export default defineConfig({
             title: '',
             favicon: '/favicon.png',
             logo: {
-                src: './src/assets/nav_logo.png',
+                dark: './src/assets/nav_logo.png',
+                light: './src/assets/nav_logo_light.png',
             },
             editLink: {
                 baseUrl: 'https://github.com/underctrl-io/commandkit-docs/edit/master/',
