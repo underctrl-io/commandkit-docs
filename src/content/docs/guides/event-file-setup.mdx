@@ -37,8 +37,8 @@ To better understand how the parameters work, here's another example but with th
         ```js
         // events/messageCreate/say-hi.js
         module.exports = (message, client) => {
-          if (message.content === 'hey') {
-               message.reply('Hi!');
+          if (message.content === "hey") {
+               message.reply("Hi!");
             }
         };
         ```
@@ -47,9 +47,9 @@ To better understand how the parameters work, here's another example but with th
     <TabItem label="ESM">
         ```js
         // events/messageCreate/say-hi.js
-        export default function (message, client) => {
-          if (message.content === 'hey') {
-               message.reply('Hi!');
+        export default function (message, client) {
+          if (message.content === "hey") {
+               message.reply("Hi!");
             }
         };
         ```
@@ -75,7 +75,7 @@ But what if an event returns multiple parameters? Let's take for example the "me
     <TabItem label="ESM">
         ```js
         // events/messageUpdate/log-message-update.js
-        export default function (oldMessage, newMessage, client) => {
+        export default function (oldMessage, newMessage, client) {
             console.log(`Message edited from ${oldMessage.content} to ${newMessage.content}`);
         };
         ```
@@ -105,7 +105,7 @@ The code above is just a simple example of how to set up an event function. But 
     <TabItem label="ESM">
         ```js
         // events/messageCreate/say-hi.js
-        export default function (message, client) => {
+        export default function (message, client) {
             if (message.content === "hey") {
                 message.reply("Hi!")
 
