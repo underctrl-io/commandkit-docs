@@ -2,7 +2,7 @@
 title: Events Setup
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components"
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 This is a simple overview of how to set up a simple function that is called when the "ready" event is triggered. All this code does is log to the console when the bot is ready.
 
@@ -37,8 +37,8 @@ To better understand how the parameters work, here's another example but with th
         ```js
         // events/messageCreate/say-hi.js
         module.exports = (message, client) => {
-          if (message.content === "hey") {
-               message.reply("Hi!");
+          if (message.content === 'hey') {
+               message.reply('Hi!');
             }
         };
         ```
@@ -48,8 +48,8 @@ To better understand how the parameters work, here's another example but with th
         ```js
         // events/messageCreate/say-hi.js
         export default function (message, client) {
-          if (message.content === "hey") {
-               message.reply("Hi!");
+          if (message.content === 'hey') {
+               message.reply('Hi!');
             }
         };
         ```
@@ -80,6 +80,7 @@ But what if an event returns multiple parameters? Let's take for example the "me
         };
         ```
     </TabItem>
+
 </Tabs>
 
 As you can see, even with multiple parameters, the last parameter will always be the `client` object.
@@ -93,8 +94,8 @@ The code above is just a simple example of how to set up an event function. But 
         ```js
         // events/messageCreate/say-hi.js
         module.exports = (message, client) => {
-            if (message.content === "hey") {
-                message.reply("Hi!")
+            if (message.content === 'hey') {
+                message.reply('Hi!')
 
                 return true // THIS STOPS THE EVENT LOOP
             }
@@ -106,14 +107,15 @@ The code above is just a simple example of how to set up an event function. But 
         ```js
         // events/messageCreate/say-hi.js
         export default function (message, client) {
-            if (message.content === "hey") {
-                message.reply("Hi!")
+            if (message.content === 'hey') {
+                message.reply('Hi!')
 
                 return true // THIS STOPS THE EVENT LOOP
             }
         }
         ```
     </TabItem>
+
 </Tabs>
 
 You can return any truthy value from this function to stop the next event function from running.
